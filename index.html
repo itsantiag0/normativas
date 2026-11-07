@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Normativas Life Roleplay</title>
+<meta name="description" content="Normativa oficial del servidor Life Roleplay (SA-MP): reglas de rol, facciones legales, actos ilícitos, bandas y mafias, streamers y uso de bugs.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=JetBrains+Mono:wght@500;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Concepto: reglamento oficial con letrero de carretera de San Andreas.
+   Titulares condensados de señalética, texto de documento legal, capítulos numerados
+   con artículos 1.1, 1.2… porque el orden y la referencia importan en una normativa. */
+:root{
+  --bg:#F2F5FB;
+  --surface:#FFFFFF;
+  --ink:#0A1633;
+  --ink-2:#44506E;
+  --line:#D5DCEB;
+  --accent:#2457F5;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E3EBFF;
+  --warn:#B4230F;
+  --warn-soft:#FDE8E4;
+  --amber-soft:#FFF0CC;
+  --cyan-soft:#D9EEF2;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070D1F;
+    --surface:#0E1730;
+    --ink:#E8EDFB;
+    --ink-2:#9AA7C7;
+    --line:#1F2C4D;
+    --accent:#6C90FF;
+    --accent-ink:#071030;
+    --accent-soft:#14224A;
+    --warn:#FF8A78;
+    --warn-soft:#2A1214;
+    --amber-soft:#2A2008;
+    --cyan-soft:#0F2A33;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070D1F;
+  --surface:#0E1730;
+  --ink:#E8EDFB;
+  --ink-2:#9AA7C7;
+  --line:#1F2C4D;
+  --accent:#6C90FF;
+  --accent-ink:#071030;
+  --accent-soft:#14224A;
+  --warn:#FF8A78;
+  --warn-soft:#2A1214;
+  --amber-soft:#2A2008;
+  --cyan-soft:#0F2A33;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:5.5rem;-webkit-text-size-adjust:100%}
+@media (min-width:900px){html{scroll-padding-top:1.5rem}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--f-body)}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Barra superior */
+.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem 1rem;padding-block:1.1rem}
+.brand{display:flex;align-items:center;gap:.55rem;font:800 1.3rem/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.brand svg{width:1.5rem;height:1.5rem;color:var(--accent);flex:none}
+.top-r{display:flex;align-items:center;gap:.6rem;min-width:0}
+.url{font:500 .8rem/1 var(--f-mono);padding:.45rem .7rem;border:1.5px solid var(--ink);border-radius:6px;letter-spacing:.02em;overflow-wrap:anywhere}
+.icon-btn{display:grid;place-items:center;width:2.3rem;height:2.3rem;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Portada */
+.hero{padding-block:2.25rem 2.5rem}
+.eyebrow{font:700 .8rem/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{margin:.5rem 0 0;font:900 clamp(3rem,13vw,9rem)/.84 var(--f-display);text-transform:uppercase;letter-spacing:-.005em}
+h1 span{display:block;color:var(--accent)}
+.lede{margin:1.5rem 0 0;max-width:40rem;font-size:1.2rem;color:var(--ink-2)}
+.meta{margin:.75rem 0 0;font:500 .82rem/1.4 var(--f-mono);color:var(--ink-2)}
+
+.search{display:flex;align-items:center;gap:.6rem;max-width:34rem;margin-top:1.75rem;padding:.15rem .9rem;background:var(--surface);border:1.5px solid var(--line);border-radius:10px}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.search svg{flex:none;width:1.15rem;height:1.15rem;color:var(--ink-2)}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:500 1rem var(--f-body);padding:.8rem 0;outline:none}
+.search input::placeholder{color:var(--ink-2);opacity:.85}
+.kbd{flex:none;font:500 .75rem/1 var(--f-mono);border:1px solid var(--line);border-radius:4px;padding:.25rem .45rem;color:var(--ink-2)}
+.count{min-height:1.6em;margin:.6rem 0 0;font:500 .85rem/1.5 var(--f-mono);color:var(--ink-2)}
+
+/* Cifras clave */
+.figs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media (min-width:640px){.figs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1000px){.figs{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.figs a{display:block;height:100%;padding:1rem 1.1rem 1.15rem;background:var(--surface);text-decoration:none}
+.figs a:hover{background:var(--accent-soft)}
+.fig-n{display:block;font:800 clamp(2rem,4vw,2.75rem)/1 var(--f-display);color:var(--ink)}
+.fig-l{display:block;margin-top:.4rem;font-size:.82rem;line-height:1.35;color:var(--ink-2)}
+
+/* Estructura */
+.shell{margin-top:3rem;padding-bottom:3rem}
+@media (min-width:900px){
+  .shell{display:grid;grid-template-columns:15.5rem minmax(0,1fr);column-gap:3.5rem;align-items:start}
+  .toc{grid-column:1;grid-row:1}
+  .main{grid-column:2;grid-row:1}
+}
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:.6rem;overflow-x:auto;scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc ul{list-style:none;margin:0;padding:0;display:flex;gap:.4rem;width:max-content}
+.toc a{display:flex;align-items:baseline;gap:.5rem;white-space:nowrap;padding:.45rem .75rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;color:var(--ink-2)}
+.toc a:hover{color:var(--ink)}
+.toc .n{font:700 .72rem/1 var(--f-mono);color:var(--accent);min-width:1.4rem}
+.toc a[aria-current="true"]{background:var(--accent-soft);color:var(--ink)}
+.toc-t{display:none}
+@media (min-width:900px){
+  .toc{top:1.5rem;max-height:calc(100vh - 3rem);overflow:auto;border:0;padding:0;background:transparent}
+  .toc ul{flex-direction:column;width:auto;gap:.1rem}
+  .toc a{white-space:normal}
+  .toc-t{display:block;margin:0 0 .6rem .75rem;font:700 .72rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+}
+
+/* Capítulos */
+.main>.chapter:first-of-type{margin-top:0}
+.chapter{margin-top:4rem;padding-top:2.25rem;border-top:2px solid var(--ink)}
+.chapter:first-of-type{margin-top:2rem}
+@media (min-width:900px){.chapter:first-of-type{margin-top:0}}
+.ch-no{font:700 .78rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.chapter h2{margin:.5rem 0 0;font:900 clamp(2.3rem,6vw,3.7rem)/.92 var(--f-display);text-transform:uppercase;text-wrap:balance}
+.ch-intro{margin:1rem 0 0;max-width:44rem;font-size:1.05rem;color:var(--ink-2)}
+
+.rules{margin:1.75rem 0 0;padding:0;list-style:none}
+.rule{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:.5rem 1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.rule-no{font:700 .85rem/1.6 var(--f-mono);color:var(--accent);text-decoration:none;padding-top:.2rem}
+.rule-no:hover{text-decoration:underline}
+.rule h3{margin:0;font:700 1.2rem/1.35 var(--f-body);display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem}
+.rule p{margin:.4rem 0 0;max-width:62ch;color:var(--ink-2)}
+.rule .rule-body{min-width:0}
+.sub{margin:.7rem 0 0;padding-left:1.15rem;max-width:62ch;color:var(--ink-2)}
+.sub li{margin:.45rem 0}
+.sub strong{color:var(--ink)}
+.cmd{font:500 .88em/1 var(--f-mono);background:var(--accent-soft);color:var(--accent);padding:.15em .45em;border-radius:4px;white-space:nowrap}
+.tag{font:700 .68rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:.3rem .5rem;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+.tag.danger{background:var(--warn-soft);color:var(--warn)}
+.tag.added{background:var(--cyan-soft);color:var(--ink)}
+
+/* Faltas de rol */
+.faults{margin:1.75rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
+.fault{padding:1.15rem 1.25rem 1.3rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;min-width:0}
+.fault-abbr{display:block;font:900 2.4rem/1 var(--f-display);color:var(--accent);text-transform:uppercase}
+.fault-name{display:block;margin-top:.35rem;font:700 .72rem/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.fault p{margin:.6rem 0 0;color:var(--ink)}
+
+/* Escala de fuerza */
+.ladder{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;align-items:end;max-width:46rem}
+@media (min-width:700px){
+  .ladder{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ladder li:nth-child(1){min-height:6rem}
+  .ladder li:nth-child(2){min-height:7.5rem}
+  .ladder li:nth-child(3){min-height:9rem}
+  .ladder li:nth-child(4){min-height:10.5rem}
+}
+.ladder li{display:flex;flex-direction:column;justify-content:flex-end;padding:.85rem .95rem;border-radius:8px;color:var(--ink);min-width:0}
+.lv1{background:var(--accent-soft)}
+.lv2{background:var(--cyan-soft)}
+.lv3{background:var(--amber-soft)}
+.lv4{background:var(--warn-soft)}
+.lv-n{font:700 .68rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.lv-t{margin-top:.3rem;font:900 1.5rem/1 var(--f-display);text-transform:uppercase}
+.lv-d{margin-top:.35rem;font-size:.82rem;line-height:1.35;color:var(--ink-2)}
+.ladder-note{margin:.8rem 0 0;font:500 .8rem/1.5 var(--f-mono);color:var(--ink-2)}
+
+/* Policías mínimos */
+.mins{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;gap:.6rem;max-width:40rem}
+.mins li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.25rem;padding:.9rem 1.1rem;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.mins-what{font-weight:600;min-width:0}
+.mins-r{display:flex;align-items:center;gap:1rem}
+.pips{display:flex;gap:.3rem}
+.pip{width:.85rem;height:.85rem;border-radius:50%;border:2px solid var(--accent)}
+.pip.on{background:var(--accent)}
+.mins-n{min-width:1.4ch;text-align:right;font:800 2.1rem/1 var(--f-display)}
+
+/* Avisos, citas, pasos */
+.callout{margin:1.1rem 0 0;padding:1.1rem 1.3rem;max-width:44rem;border-radius:10px;background:var(--accent-soft);border:1px solid var(--accent)}
+.callout.danger{background:var(--warn-soft);border-color:var(--warn)}
+.callout-t{font:700 .75rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.callout.danger .callout-t{color:var(--warn)}
+.rule .callout p{margin:.5rem 0 0;max-width:60ch;font-size:1.05rem;color:var(--ink)}
+.quote-l{display:block;margin-top:.9rem;font:700 .7rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.quote{margin:.5rem 0 0;padding:1rem 1.2rem;max-width:62ch;background:var(--surface);border:1px dashed var(--line);border-radius:10px;font-style:italic;color:var(--ink-2)}
+.steps{counter-reset:s;list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.65rem;max-width:62ch}
+.steps li{counter-increment:s;display:flex;align-items:flex-start;gap:.8rem;color:var(--ink-2)}
+.steps li::before{content:counter(s);flex:none;display:grid;place-items:center;width:1.65rem;height:1.65rem;margin-top:.1rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 .8rem/1 var(--f-mono)}
+
+/* Glosario */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:0 2rem;margin:1.75rem 0 0}
+.gloss-i{padding:.9rem 0;border-top:1px solid var(--line);min-width:0}
+.gloss dt{font:700 .95rem/1.4 var(--f-mono);color:var(--accent)}
+.gloss dd{margin:.15rem 0 0;color:var(--ink-2)}
+
+.empty{margin:2rem 0;padding:1.25rem 1.4rem;background:var(--surface);border:1px dashed var(--line);border-radius:10px;color:var(--ink-2)}
+
+/* Pie */
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;border-top:2px solid var(--ink);padding-block:2rem 3rem}
+.foot p{margin:0;max-width:34rem;color:var(--ink-2)}
+.foot .brand{font-size:1.1rem}
+.foot .url{border-color:var(--line)}
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="#inicio" aria-label="Life Roleplay, inicio">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    Life Roleplay
+  </a>
+  <div class="top-r">
+    <span class="url">normativas.liferp.es</span>
+    <button class="icon-btn" id="theme" type="button" aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="wrap hero" id="inicio">
+  <div class="eyebrow">Reglamento oficial · Servidor SA-MP</div>
+  <h1>Normativas <span>Life Roleplay</span></h1>
+  <p class="lede">La prioridad del servidor es la inmersión y el realismo. Tu personaje debe ser verosímil y actuar con lógica humana en todo momento.</p>
+  <p class="meta">Actualizada el 7 de noviembre de 2026</p>
+
+  <label class="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span class="sr-only">Buscar en la normativa</span>
+    <input id="q" type="search" placeholder="Buscar: PIT, cooldown, Miranda, stream sniping…" autocomplete="off" spellcheck="false">
+    <span class="kbd" aria-hidden="true">/</span>
+  </label>
+  <p class="count" id="count" aria-live="polite"></p>
+</section>
+
+<section class="wrap" aria-label="Cifras clave">
+  <ul class="figs">
+    <li><a href="#ilicitos"><span class="fig-n">45 min</span><span class="fig-l">Entre cada atraco mayor</span></a></li>
+    <li><a href="#r-5-1"><span class="fig-n">2 · 3 · 5</span><span class="fig-l">Policías mínimos: civiles, tiendas, bancos</span></a></li>
+    <li><a href="#r-5-4"><span class="fig-n">4</span><span class="fig-l">Atracadores máximo por acto convencional</span></a></li>
+    <li><a href="#r-6-3"><span class="fig-n">6</span><span class="fig-l">Miembros por bando en tiroteos</span></a></li>
+    <li><a href="#r-4-1"><span class="fig-n">4</span><span class="fig-l">Niveles en la escala de fuerza</span></a></li>
+    <li><a href="#bugs"><span class="fig-n">0</span><span class="fig-l">Tolerancia a bugs y hacks</span></a></li>
+  </ul>
+</section>
+
+<div class="wrap shell">
+
+  <nav class="toc" aria-label="Capítulos de la normativa">
+    <span class="toc-t">Capítulos</span>
+    <ul>
+      <li><a href="#realismo"><span class="n">I</span>Realismo e interpretación</a></li>
+      <li><a href="#faltas"><span class="n">II</span>Faltas de rol</a></li>
+      <li><a href="#convivencia"><span class="n">III</span>Convivencia y reportes</a></li>
+      <li><a href="#facciones"><span class="n">IV</span>Facciones legales</a></li>
+      <li><a href="#ilicitos"><span class="n">V</span>Actos ilícitos</a></li>
+      <li><a href="#bandas"><span class="n">VI</span>Bandas y mafias</a></li>
+      <li><a href="#streamers"><span class="n">VII</span>Streamers</a></li>
+      <li><a href="#bugs"><span class="n">VIII</span>Uso de bugs</a></li>
+      <li><a href="#glosario"><span class="n">IX</span>Glosario</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <p class="empty" id="empty" hidden>No hay resultados para esa búsqueda. Prueba con otra palabra, por ejemplo “bug”, “policías” o “stream”.</p>
+
+    <!-- CAPÍTULO I -->
+    <section class="chapter" id="realismo">
+      <header>
+        <div class="ch-no">Capítulo I</div>
+        <h2>Interpretación y realismo absoluto</h2>
+        <p class="ch-intro">Cómo debe comportarse tu personaje dentro de la ciudad. Estas son las normas base del rol.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-1-1" data-s>
+          <a class="rule-no" href="#r-1-1">1.1</a>
+          <div class="rule-body">
+            <h3>Desarrollo de personaje</h3>
+            <p>Tu PJ no es un superhéroe. Tiene miedos, limitaciones y debe valorar su vida ante cualquier amenaza directa (NVR).</p>
+          </div>
+        </li>
+        <li class="rule" id="r-1-2" data-s>
+          <a class="rule-no" href="#r-1-2">1.2</a>
+          <div class="rule-body">
+            <h3>Uso de comandos</h3>
+            <p>Es obligatorio el uso constante de <span class="cmd">/me</span> (acciones) y <span class="cmd">/do</span> (entorno y estado físico) para dar profundidad a tus roles.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-1-3" data-s>
+          <a class="rule-no" href="#r-1-3">1.3</a>
+          <div class="rule-body">
+            <h3>Rol de choque y entorno</h3>
+            <p>Tras un accidente vehicular grave, debes rolear los daños y heridas antes de continuar. Asume siempre la presencia de cámaras y peatones en la ciudad.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-1-4" data-s>
+          <a class="rule-no" href="#r-1-4">1.4</a>
+          <div class="rule-body">
+            <h3>Separación IC / OOC <span class="tag added">Norma base</span></h3>
+            <p>Lo que vive tu personaje se resuelve dentro del rol. Usa el chat OOC solo cuando sea imprescindible, de forma breve y sin mezclar asuntos del jugador con la historia del personaje.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-1-5" data-s>
+          <a class="rule-no" href="#r-1-5">1.5</a>
+          <div class="rule-body">
+            <h3>Nombre y personaje creíble <span class="tag added">Norma base</span></h3>
+            <p>Usa un nombre y apellido realistas (Nombre_Apellido). No se permiten nombres de famosos, personajes de ficción u ofensivos, ni identidades que rompan la inmersión.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-1-6" data-s>
+          <a class="rule-no" href="#r-1-6">1.6</a>
+          <div class="rule-body">
+            <h3>Conducción realista <span class="tag added">Norma base</span></h3>
+            <p>Conduce como lo haría una persona real: respeta señales y semáforos, evita maniobras imposibles y no uses el vehículo como arma sin un motivo IC (ver VDM).</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO II -->
+    <section class="chapter" id="faltas">
+      <header>
+        <div class="ch-no">Capítulo II</div>
+        <h2>Prohibición estricta de faltas de rol</h2>
+        <p class="ch-intro">Estas conductas rompen el rol y se sancionan. Si presencias una, sigue el procedimiento del capítulo III.</p>
+      </header>
+      <div class="faults">
+        <article class="fault" data-s>
+          <span class="fault-abbr">Anti-RP</span>
+          <span class="fault-name">Contra el rol</span>
+          <p>Prohibida cualquier acción que rompa la lógica de la vida real.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">MG</span>
+          <span class="fault-name">MetaGaming</span>
+          <p>Prohibido usar información OOC (Discord, streams) para beneficio en el juego.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">PG</span>
+          <span class="fault-name">PowerGaming</span>
+          <p>Prohibido hacer cosas imposibles en la vida real o forzar el rol de otros.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">DM</span>
+          <span class="fault-name">DeathMatch</span>
+          <p>Prohibido atacar o disparar sin un motivo IC válido y justificado.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">VDM</span>
+          <span class="fault-name">Vehicle DeathMatch</span>
+          <p>Prohibido atropellar sin un motivo IC válido y justificado.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">RK</span>
+          <span class="fault-name">Revenge Kill</span>
+          <p>Si tu personaje es abatido y revive en el hospital, olvida el rol previo y no puedes buscar venganza.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">NVR</span>
+          <span class="fault-name">No valorar la vida</span>
+          <p>Prohibido actuar sin miedo ante armas o amenazas directas. Tu personaje protege su vida.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">Mixing</span>
+          <span class="fault-name">Mezclar IC y OOC</span>
+          <p>Prohibido llevar asuntos del jugador al rol, o usar el rol para resolver conflictos personales fuera del juego.</p>
+        </article>
+        <article class="fault" data-s>
+          <span class="fault-abbr">CL</span>
+          <span class="fault-name">Combat Log</span>
+          <p>Prohibido desconectarte para evitar un rol, un arresto o sus consecuencias.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO III -->
+    <section class="chapter" id="convivencia">
+      <header>
+        <div class="ch-no">Capítulo III</div>
+        <h2>Convivencia y desarrollo de rol</h2>
+        <p class="ch-intro">Los conflictos se resuelven en Discord, nunca en medio de un rol.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-3-1" data-s>
+          <a class="rule-no" href="#r-3-1">3.1</a>
+          <div class="rule-body">
+            <h3>Continuidad</h3>
+            <p>Un rol NO se interrumpe en el juego bajo ningún motivo. Si hay un incumplimiento, termina el rol y reporta en Discord con pruebas.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-3-2" data-s>
+          <a class="rule-no" href="#r-3-2">3.2</a>
+          <div class="rule-body">
+            <h3>Cómo reportar <span class="tag added">Norma base</span></h3>
+            <ol class="steps">
+              <li>Termina el rol sin discutir dentro del juego.</li>
+              <li>Guarda las pruebas: video o capturas donde se vea toda la situación.</li>
+              <li>Abre el reporte en el Discord del servidor con las pruebas adjuntas.</li>
+            </ol>
+          </div>
+        </li>
+        <li class="rule" id="r-3-3" data-s>
+          <a class="rule-no" href="#r-3-3">3.3</a>
+          <div class="rule-body">
+            <h3>Trato respetuoso <span class="tag added">Norma base</span></h3>
+            <p>Respeta a los jugadores y al Staff. No se toleran insultos, discriminación ni acoso, tampoco fuera del rol.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-3-4" data-s>
+          <a class="rule-no" href="#r-3-4">3.4</a>
+          <div class="rule-body">
+            <h3>Desconocimiento de las normas</h3>
+            <div class="callout">
+              <div class="callout-t">Importante</div>
+              <p>El desconocimiento de estas normas no exime de su cumplimiento.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO IV -->
+    <section class="chapter" id="facciones">
+      <header>
+        <div class="ch-no">Capítulo IV</div>
+        <h2>Facciones legales</h2>
+        <p class="ch-intro">Estas normas nacen de la SAPD y rigen para todas las facciones legales del servidor.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-4-1" data-s>
+          <a class="rule-no" href="#r-4-1">4.1</a>
+          <div class="rule-body">
+            <h3>Uso proporcional de la fuerza</h3>
+            <p>Sigue la escala de fuerza y no subas de nivel si el anterior es suficiente.</p>
+            <ol class="ladder">
+              <li class="lv1"><span class="lv-n">Nivel 1</span><span class="lv-t">Presencia</span><span class="lv-d">Uniforme, vehículo y posición</span></li>
+              <li class="lv2"><span class="lv-n">Nivel 2</span><span class="lv-t">Verbal</span><span class="lv-d">Órdenes y negociación</span></li>
+              <li class="lv3"><span class="lv-n">Nivel 3</span><span class="lv-t">Menos letal</span><span class="lv-d">Herramientas no letales</span></li>
+              <li class="lv4"><span class="lv-n">Nivel 4</span><span class="lv-t">Fuerza letal</span><span class="lv-d">Último recurso, con justificación IC</span></li>
+            </ol>
+            <p class="ladder-note">Presencia ➔ Verbal ➔ Menos letal ➔ Fuerza letal</p>
+          </div>
+        </li>
+        <li class="rule" id="r-4-2" data-s>
+          <a class="rule-no" href="#r-4-2">4.2</a>
+          <div class="rule-body">
+            <h3>Rol de entorno</h3>
+            <p>Toda comisaría, sede, vehículo y procedimiento cuenta con un entorno activo: personas alrededor, radio, cámaras y testigos.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-4-3" data-s>
+          <a class="rule-no" href="#r-4-3">4.3</a>
+          <div class="rule-body">
+            <h3>Persecuciones y maniobras PIT</h3>
+            <p>Prohibido realizar maniobras PIT a altas velocidades o en zonas con peatones sin autorización de un superior.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-4-4" data-s>
+          <a class="rule-no" href="#r-4-4">4.4</a>
+          <div class="rule-body">
+            <h3>Corrupción</h3>
+            <p>La corrupción dentro de una facción legal requiere autorización previa del Staff y está limitada a ciertos rangos.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-4-5" data-s>
+          <a class="rule-no" href="#r-4-5">4.5</a>
+          <div class="rule-body">
+            <h3>Derechos Miranda</h3>
+            <p>Es obligatorio leer los derechos al detenido durante el arresto.</p>
+            <span class="quote-l">Texto de referencia</span>
+            <p class="quote">Tiene derecho a permanecer en silencio. Todo lo que diga puede y será usado en su contra ante un tribunal. Tiene derecho a un abogado; si no puede pagarlo, se le asignará uno de oficio. ¿Entiende los derechos que le acabo de leer?</p>
+          </div>
+        </li>
+        <li class="rule" id="r-4-6" data-s>
+          <a class="rule-no" href="#r-4-6">4.6</a>
+          <div class="rule-body">
+            <h3>Cadena de mando y abuso de autoridad <span class="tag added">Norma base</span></h3>
+            <p>Respeta la jerarquía de tu facción. Está prohibido usar la placa o el uniforme para beneficio personal o para perjudicar a otros jugadores.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO V -->
+    <section class="chapter" id="ilicitos">
+      <header>
+        <div class="ch-no">Capítulo V</div>
+        <h2>Actos ilícitos</h2>
+        <p class="ch-intro">Reglas que regulan las actividades delictivas en el servidor.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-5-1" data-s>
+          <a class="rule-no" href="#r-5-1">5.1</a>
+          <div class="rule-body">
+            <h3>Policías mínimos para delinquir</h3>
+            <p>Antes de cometer un acto ilícito debe haber, como mínimo, esta cantidad de policías en servicio.</p>
+            <ul class="mins">
+              <li>
+                <span class="mins-what">Robos a civiles / hurtos</span>
+                <span class="mins-r"><span class="pips" aria-hidden="true"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span><span class="mins-n">2<span class="sr-only"> policías en servicio</span></span></span>
+              </li>
+              <li>
+                <span class="mins-what">Robos a tiendas / tienditas</span>
+                <span class="mins-r"><span class="pips" aria-hidden="true"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span><span class="mins-n">3<span class="sr-only"> policías en servicio</span></span></span>
+              </li>
+              <li>
+                <span class="mins-what">Robos a bancos / joyerías</span>
+                <span class="mins-r"><span class="pips" aria-hidden="true"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span><span class="mins-n">5<span class="sr-only"> policías en servicio</span></span></span>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="rule" id="r-5-2" data-s>
+          <a class="rule-no" href="#r-5-2">5.2</a>
+          <div class="rule-body">
+            <h3>Cooldown <span class="tag">45 min</span></h3>
+            <p>Debe pasar un mínimo de 45 minutos entre cada atraco mayor.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-5-3" data-s>
+          <a class="rule-no" href="#r-5-3">5.3</a>
+          <div class="rule-body">
+            <h3>Secuestros</h3>
+            <p>Prohibido secuestrar a usuarios recién conectados o en trabajos legales públicos (Basurero, Camionero, etc.).</p>
+          </div>
+        </li>
+        <li class="rule" id="r-5-4" data-s>
+          <a class="rule-no" href="#r-5-4">5.4</a>
+          <div class="rule-body">
+            <h3>Límite de atracadores <span class="tag">Máx. 4</span></h3>
+            <p>Máximo 4 personas por acto ilícito convencional (salvo robos mayores autorizados).</p>
+          </div>
+        </li>
+        <li class="rule" id="r-5-5" data-s>
+          <a class="rule-no" href="#r-5-5">5.5</a>
+          <div class="rule-body">
+            <h3>Motivo y rol previo <span class="tag added">Norma base</span></h3>
+            <p>Todo acto ilícito necesita un motivo IC, rol previo y asumir las consecuencias. Si tu personaje es detenido o abatido, el rol sigue su curso.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO VI -->
+    <section class="chapter" id="bandas">
+      <header>
+        <div class="ch-no">Capítulo VI</div>
+        <h2>Bandas y mafias</h2>
+        <p class="ch-intro">Reglamento para organizaciones criminales oficiales y no oficiales.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-6-1" data-s>
+          <a class="rule-no" href="#r-6-1">6.1</a>
+          <div class="rule-body">
+            <h3>Territorios y HQs</h3>
+            <p>El cuartel general (HQ) de una banda es zona de alto riesgo. Quien ingrese a provocar asume el riesgo de CK o ataque directo.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-6-2" data-s>
+          <a class="rule-no" href="#r-6-2">6.2</a>
+          <div class="rule-body">
+            <h3>Guerras de facciones</h3>
+            <p>Toda guerra entre bandas o mafias debe ser aprobada por el Encargado de Facciones Ilegales.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-6-3" data-s>
+          <a class="rule-no" href="#r-6-3">6.3</a>
+          <div class="rule-body">
+            <h3>Límite de integrantes en tiroteos <span class="tag">Máx. 6</span></h3>
+            <p>Máximo 6 miembros por bando en enfrentamientos de calle.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-6-4" data-s>
+          <a class="rule-no" href="#r-6-4">6.4</a>
+          <div class="rule-body">
+            <h3>Rol de entorno de barrio</h3>
+            <p>Las bandas deben respetar el rol de entorno de su zona: presencia de vecinos, cámaras y llamadas automáticas al 911.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO VII -->
+    <section class="chapter" id="streamers">
+      <header>
+        <div class="ch-no">Capítulo VII</div>
+        <h2>Streamers</h2>
+        <p class="ch-intro">Reglas para garantizar que las transmisiones en vivo no afecten la experiencia de juego.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-7-1" data-s>
+          <a class="rule-no" href="#r-7-1">7.1</a>
+          <div class="rule-body">
+            <h3>Falta de respeto OOC</h3>
+            <p>Prohibido incitar al hate o faltar al respeto a otros jugadores o al servidor durante el directo.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-7-2" data-s>
+          <a class="rule-no" href="#r-7-2">7.2</a>
+          <div class="rule-body">
+            <h3>Prohibición de StreamSniping <span class="tag danger">Baneo permanente</span></h3>
+            <p>Ver la transmisión de un creador para buscarlo o beneficiarse en el juego es sancionado con Baneo Permanente.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-7-3" data-s>
+          <a class="rule-no" href="#r-7-3">7.3</a>
+          <div class="rule-body">
+            <h3>Modo oculto</h3>
+            <p>Oculta información sensible como contraseñas, chats administrativos o canales de Discord del Staff mientras estés en directo.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-7-4" data-s>
+          <a class="rule-no" href="#r-7-4">7.4</a>
+          <div class="rule-body">
+            <h3>Retraso en la transmisión <span class="tag added">Recomendación</span></h3>
+            <p>Activa un retraso (delay) en tu directo para proteger a tu personaje y a los demás del StreamSniping y el MG.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO VIII -->
+    <section class="chapter" id="bugs">
+      <header>
+        <div class="ch-no">Capítulo VIII</div>
+        <h2>Uso de bugs</h2>
+        <p class="ch-intro">El uso de fallos del juego o de la plataforma para beneficio propio o de terceros atenta contra la experiencia y el equilibrio del servidor.</p>
+      </header>
+      <ol class="rules">
+        <li class="rule" id="r-8-1" data-s>
+          <a class="rule-no" href="#r-8-1">8.1</a>
+          <div class="rule-body">
+            <h3>Prohibición de exploits y bugs</h3>
+            <ul class="sub">
+              <li><strong>Uso de bugs:</strong> queda totalmente prohibido aprovechar cualquier error, fallo o vulnerabilidad del juego (SA-MP), mapeos, comandos o scripts del servidor.</li>
+              <li><strong>Abuso de animaciones:</strong> prohibido usar animaciones para atravesar paredes, cancelar animaciones de daño, curación o recarga (anim-cancel / C-Bug sin autorización de contexto).</li>
+              <li><strong>Duplicación y dinero:</strong> cualquier intento de duplicar armas, vehículos, dinero o ítems derivará en una sanción inmediata.</li>
+              <li><strong>Modificación de archivos (CLEO / hacks):</strong> prohibido el uso de mod menus, aimbot, wallhack, speedhack, parkour mods o cualquier modificación externa que otorgue ventajas injustas.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="rule" id="r-8-2" data-s>
+          <a class="rule-no" href="#r-8-2">8.2</a>
+          <div class="rule-body">
+            <h3>Obligación de reportar</h3>
+            <p>Si descubres un error o bug en el servidor, tienes la obligación de reportarlo inmediatamente mediante un ticket a la Administración.</p>
+            <p><strong>Cómplices:</strong> ocultar un bug o beneficiarte indirectamente del uso que haga otra persona será sancionado con la misma gravedad.</p>
+          </div>
+        </li>
+        <li class="rule" id="r-8-3" data-s>
+          <a class="rule-no" href="#r-8-3">8.3</a>
+          <div class="rule-body">
+            <h3>Sanciones</h3>
+            <div class="callout danger">
+              <div class="callout-t">Sin derecho a apelación</div>
+              <p>El aprovechamiento deliberado de bugs o el uso de hacks conlleva la pérdida completa de bienes (reseteo de cuenta) y/o baneo permanente.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CAPÍTULO IX -->
+    <section class="chapter" id="glosario">
+      <header>
+        <div class="ch-no">Capítulo IX</div>
+        <h2>Glosario</h2>
+        <p class="ch-intro">Los términos que verás en esta normativa y en el servidor.</p>
+      </header>
+      <dl class="gloss">
+        <div class="gloss-i" data-s><dt>IC</dt><dd>In Character: todo lo que ocurre dentro de la historia de tu personaje.</dd></div>
+        <div class="gloss-i" data-s><dt>OOC</dt><dd>Out Of Character: lo que pertenece al jugador, fuera del rol.</dd></div>
+        <div class="gloss-i" data-s><dt>PJ</dt><dd>Personaje jugador: el personaje que interpretas.</dd></div>
+        <div class="gloss-i" data-s><dt>CK</dt><dd>Character Kill: muerte definitiva del personaje.</dd></div>
+        <div class="gloss-i" data-s><dt>PK</dt><dd>Player Kill: tu personaje es abatido y olvida el rol previo (ver RK).</dd></div>
+        <div class="gloss-i" data-s><dt>HQ</dt><dd>Cuartel general de una banda o mafia.</dd></div>
+        <div class="gloss-i" data-s><dt>Staff</dt><dd>Equipo de administración y moderación del servidor.</dd></div>
+        <div class="gloss-i" data-s><dt>/me</dt><dd>Comando para describir las acciones de tu personaje.</dd></div>
+        <div class="gloss-i" data-s><dt>/do</dt><dd>Comando para describir el entorno y el estado físico.</dd></div>
+        <div class="gloss-i" data-s><dt>PIT</dt><dd>Maniobra que hace girar a un vehículo en persecución al golpearlo en la parte trasera.</dd></div>
+      </dl>
+    </section>
+  </main>
+</div>
+
+<footer class="wrap foot">
+  <a class="brand" href="#inicio">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    Life Roleplay
+  </a>
+  <p>El desconocimiento de estas normas no exime de su cumplimiento. Si tienes dudas sobre la normativa, abre un ticket en el Discord del servidor.</p>
+  <span class="url">normativas.liferp.es</span>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* Tema claro / oscuro */
+  try {
+    var saved = localStorage.getItem('lr-theme');
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  var themeBtn = document.getElementById('theme');
+  function isDark() {
+    var a = root.getAttribute('data-theme');
+    if (a) return a === 'dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  themeBtn.setAttribute('aria-pressed', String(isDark()));
+  themeBtn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    themeBtn.setAttribute('aria-pressed', String(next === 'dark'));
+    try { localStorage.setItem('lr-theme', next); } catch (e) {}
+  });
+
+  /* Búsqueda */
+  function norm(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+  var input = document.getElementById('q');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var items = [].slice.call(document.querySelectorAll('[data-s]'));
+  var chapters = [].slice.call(document.querySelectorAll('.chapter'));
+  var navLinks = [].slice.call(document.querySelectorAll('.toc a'));
+  var texts = items.map(function (el) { return norm(el.textContent); });
+
+  function run() {
+    var v = norm(input.value.trim());
+    var n = 0;
+    items.forEach(function (el, i) {
+      var match = !v || texts[i].indexOf(v) > -1;
+      el.hidden = !match;
+      if (match) n++;
+    });
+    chapters.forEach(function (ch, i) {
+      var any = ch.querySelector('[data-s]:not([hidden])');
+      var hide = !!v && !any;
+      ch.hidden = hide;
+      if (navLinks[i]) navLinks[i].parentNode.hidden = hide;
+    });
+    empty.hidden = !(v && n === 0);
+    count.textContent = v ? (n === 1 ? '1 resultado' : n + ' resultados') : '';
+  }
+  input.addEventListener('input', run);
+  document.addEventListener('keydown', function (e) {
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      e.preventDefault();
+      input.focus();
+    }
+    if (e.key === 'Escape' && document.activeElement === input) {
+      input.value = '';
+      run();
+      input.blur();
+    }
+  });
+
+  /* Capítulo activo en el índice */
+  if ('IntersectionObserver' in window) {
+    var narrow = window.matchMedia('(max-width: 899px)');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var id = en.target.id;
+        navLinks.forEach(function (a) {
+          var on = a.getAttribute('href') === '#' + id;
+          a.setAttribute('aria-current', on ? 'true' : 'false');
+          if (on && narrow.matches) {
+            try { a.scrollIntoView({ inline: 'center', block: 'nearest' }); } catch (e) {}
+          }
+        });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    chapters.forEach(function (ch) { io.observe(ch); });
+  }
+})();
+</script>
+</body>
+</html>
